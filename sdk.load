@@ -1,5 +1,5 @@
 for sdk_path in (find $HOME/.sdkman/*/current/bin -maxdepth 0)
-  _prepend_path $sdk_path
+  set PATH $sdk_path $PATH
   set -l module_info (echo $sdk_path | perl -ne 'm|(.*/.sdkman/(\w+)/current)/bin| && print "$1 $2"')
   set -l module_dir (echo $module_info | awk -F' ' '{print $1}')
   set -l module_name (echo $module_info | awk -F' ' '{print $2}')
